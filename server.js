@@ -15,8 +15,6 @@ import { fileURLToPath } from "url";
 //     credentials: true,
 //   })
 // );
-const __dirname = dirname(fileURLToPath(import.meta.url));
-app.use(express.static(path.resolve(__dirname, "./client/dist")));
 
 import productRouter from "./routes/productRouter.js";
 import userRouter from "./routes/userRouter.js";
@@ -24,6 +22,8 @@ import cartRouter from "./routes/cartRouter.js";
 import orderRouter from "./routes/orderRouter.js";
 import errorHandlerMiddleware from "./middlewares/errorHandlerMiddleware.js";
 app.use(express.json());
+const __dirname = dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.resolve(__dirname, "./client/dist")));
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/cart", cartRouter);
