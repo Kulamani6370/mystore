@@ -5,6 +5,9 @@ import mongoose from "mongoose";
 dotenv.config();
 import cookieParser from "cookie-parser";
 app.use(cookieParser());
+import path from "path";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 // import cors from "cors";
 // app.use(
 //   cors({
@@ -12,6 +15,8 @@ app.use(cookieParser());
 //     credentials: true,
 //   })
 // );
+const __dirname = dirname(fileURLToPath(import.meta.url));
+app.use(express.static(path.resolve(__dirname, "./client/dist")));
 
 import productRouter from "./routes/productRouter.js";
 import userRouter from "./routes/userRouter.js";
