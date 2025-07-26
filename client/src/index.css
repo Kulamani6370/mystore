@@ -1,0 +1,12 @@
+@import "tailwindcss";
+/* @plugin "daisyui"; */
+
+@plugin "daisyui" {
+  themes: winter, dracula;
+}
+
+@layer components {
+  .align-element {
+    @apply mx-auto max-w-6xl px-8;
+  }
+}
